@@ -1,5 +1,5 @@
 {
-  "name": "tactable-frontend-coding-challenge",
+  "name": "tactable-frontend-challenge",
   "private": true,
   "scripts": {
     "dev": "next dev",
