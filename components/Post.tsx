@@ -1,31 +1,11 @@
-import { NextComponentType } from "next";
+import { NextComponentType } from 'next';
 
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading } from '@chakra-ui/react';
 
-type Author = {
-  id: number
-  name: string
-  avatar: string
-  postId: number
-  createdAt: Date
-  updatedAt: Date
-}
-
-type PostShared = {
-  id: number
-  title: string
-  description: string
-  createdAt: Date
-  updatedAt: Date
-}
-
-type Comment = PostShared & { postId: number }
+import type PostT from '../types/post'
 
 type Props = {
-  post: PostShared & {
-    authors: Author[]
-    comments: Comment[]
-  }
+  post: PostT
 }
 
 const Post = ({ post }: Props) => (
