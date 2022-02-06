@@ -6,7 +6,7 @@ type Props = {
   post: PostT
 }
 
-const Post = ({ post }: Props) => (
+const Post: React.VFC<Props> = ({ post }) => (
   <Box
     borderWidth='1px'
     borderRadius='lg'
