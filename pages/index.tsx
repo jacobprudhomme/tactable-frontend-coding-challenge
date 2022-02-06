@@ -1,9 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 import { useQuery } from 'react-query';
-import { Box, Center, StackDivider, VStack } from '@chakra-ui/react'
+import { Center, VStack } from '@chakra-ui/react'
 
 import Post from '../components/Post'
 import type PostT from '../types/post'
@@ -30,7 +28,6 @@ const Home: NextPage = () => {
           borderWidth='1px'
           borderRadius='lg'
           align='stretch'
-          divider={<StackDivider borderColor='gray.200' />}
           spacing={6}
         >
           {isLoading

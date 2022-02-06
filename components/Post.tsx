@@ -1,5 +1,3 @@
-import { NextComponentType } from 'next';
-
 import { Box, Heading } from '@chakra-ui/react';
 
 import type PostT from '../types/post'
