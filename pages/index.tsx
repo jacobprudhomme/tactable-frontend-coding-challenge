@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Center minH='100vh' w='100vw' p={20}>
+      <Center minH='100vh' w='100vw' pt={16}>
         <VStack
           w='60%'
           p={6}

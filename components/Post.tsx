@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Flex, Heading, Spacer, Text } from '@chakra-ui/react';
 
 import type PostT from '../types/post'
 
@@ -6,19 +6,29 @@ type Props = {
   post: PostT
 }
 
-const Post: React.VFC<Props> = ({ post }) => (
-  <Box
-    borderWidth='1px'
-    borderRadius='lg'
-  >
-    <Heading>{post.title}</Heading>
-    <p>{post.description}</p>
-    <p>Written by {post.authors.map(({ name }) => name).join(', ')}</p>
-    <p>Date Created: {post.createdAt.toLocaleString()}</p>
-    {post.updatedAt?.valueOf() !== post.createdAt.valueOf() &&
-      <p>Last Updated: {post.updatedAt.toLocaleString()}</p>
-    }
-  </Box>
-)
+const Post: React.VFC<Props> = ({ post }) => {
+  post.createdAt = new Date(post.createdAt)
+  post.updatedAt = new Date(post.updatedAt)
+
+  return (
+    <Box
+      p={4}
+      borderWidth='1px'
+      borderRadius='lg'
+      boxShadow='outline'
+    >
+      <Heading textTransform='uppercase'>{post.title}</Heading>
+      <Text color='GrayText' fontSize='sm' >Written by {post.authors.map(({ name }) => name).join(', ')}</Text>
+      <Text my={4} align='justify' noOfLines={2}>{post.description}</Text>
+      <Flex>
+        <Text color='GrayText' fontSize='xs'>Published on {post.createdAt.toLocaleString().slice(0, -3)}</Text>
+        <Spacer />
+        {post.updatedAt.valueOf() !== post.createdAt.valueOf() &&
+          <Text color='GrayText' fontSize='xs'>Last Updated on {post.updatedAt.toLocaleString().slice(0, -3)}</Text>
+        }
+      </Flex>
+    </Box>
+  )
+}
 
 export default Post
