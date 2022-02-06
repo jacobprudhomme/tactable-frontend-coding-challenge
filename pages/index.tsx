@@ -8,6 +8,11 @@ import type PostT from '../types/post'
 
 async function getPosts() {
   const res = await fetch('https://6144e843411c860017d256f0.mockapi.io/api/v1/posts')
+
+  if (!res.ok) {
+    throw new Error('Error fetching list of posts')
+  }
+
   return res.json()
 }
 
