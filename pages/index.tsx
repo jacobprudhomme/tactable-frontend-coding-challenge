@@ -13,7 +13,10 @@ async function getPosts() {
     throw new Error('Error fetching list of posts')
   }
 
-  return res.json()
+  const posts: PostT[] = await res.json()
+  posts.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())  // Sort by most recently created
+
+  return posts
 }
 
 const Home: NextPage = () => {
@@ -26,12 +29,13 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Center minH='100vh' w='100vw' pt={16}>
+      <Center minH='100vh' w='100vw' py={16}>
         <VStack
-          w='60%'
+          w='50%'
           p={6}
           borderWidth='1px'
-          borderRadius='lg'
+          borderRadius='md'
+          borderColor='gray.100'
           align='stretch'
           spacing={6}
         >

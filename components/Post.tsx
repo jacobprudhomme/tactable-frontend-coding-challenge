@@ -15,9 +15,9 @@ const Post: React.VFC<Props> = ({ post }) => {
       p={4}
       borderWidth='1px'
       borderRadius='lg'
-      boxShadow='outline'
+      borderColor='gray.300'
     >
-      <Heading textTransform='uppercase'>{post.title}</Heading>
+      <Heading color='gainsboro' textTransform='uppercase'>{post.title}</Heading>
       <Text color='GrayText' fontSize='sm' >Written by {post.authors.map(({ name }) => name).join(', ')}</Text>
       <Text my={4} align='justify' noOfLines={2}>{post.description}</Text>
       <Flex>
