@@ -15,7 +15,7 @@ type Query = {
 const PostsContainer: React.VFC = () => {
   const { isLoading, isError, data, error } = useQuery<Query, Error>('posts', getPosts)
   const { posts, pageCount } = data || { posts: [], pageCount: 1 }
-  const [page, setPage] = useState(1)
+  const [ page, setPage ] = useState(1)
 
   if (isLoading) {
     return <Heading color='teal.500'>Loading...</Heading>
@@ -51,20 +51,20 @@ const PostsContainer: React.VFC = () => {
         <Flex>
           <Button
             leftIcon={<ArrowBackIcon />}
-            onClick={() => { setPage(page - 1); window.scrollTo(0, 0) }}
             bgColor='gray.50'
-            disabled={page === 1}
             _hover={{ background: 'gray.300' }}
+            disabled={page === 1}
+            onClick={() => { setPage(page - 1); window.scrollTo(0, 0) }}
           >
             Prev Page
           </Button>
           <Spacer />
           <Button
             rightIcon={<ArrowForwardIcon />}
-            onClick={() => { setPage(page + 1); window.scrollTo(0, 0) }}
             bgColor='gray.50'
-            disabled={page === pageCount}
             _hover={{ background: 'gray.300' }}
+            disabled={page === pageCount}
+            onClick={() => { setPage(page + 1); window.scrollTo(0, 0) }}
           >
             Next Page
           </Button>

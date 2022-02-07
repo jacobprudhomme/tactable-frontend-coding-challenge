@@ -17,18 +17,33 @@ const Post: React.VFC<Props> = ({ post }) => {
       borderRadius='lg'
       boxShadow='lg'
     >
-      <Heading color='teal.300' textTransform='uppercase'>{post.title}</Heading>
-      <Text color='GrayText' fontSize='sm' >Written by {post.authors.map(({ name }) => name).join(', ')}</Text>
-      <Text my={4} align='justify'>{post.description}</Text>
+      <Heading color='teal.300' textTransform='uppercase'>
+        {post.title}
+      </Heading>
+      <Text color='GrayText' fontSize='sm' >
+        Written by{' '}
+        {post.authors.map(({ name }) => name).join(', ')}
+      </Text>
+      <Text my={4} align='justify'>
+        {post.description}
+      </Text>
       <Flex>
-        <Text color='GrayText' fontSize='xs'>Published on <WordGroup>{createdAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
+        <Text color='GrayText' fontSize='xs'>
+          Published on{' '}
+          <WordGroup>{createdAt.toLocaleString().slice(0, -3)}</WordGroup>
+        </Text>
         <Spacer minW={2} />
         {updatedAt.valueOf() !== createdAt.valueOf() &&
-          <Text color='GrayText' fontSize='xs'>Last Updated on <WordGroup>{updatedAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
+          <Text color='GrayText' fontSize='xs'>
+            Last Updated on{' '}
+            <WordGroup>{updatedAt.toLocaleString().slice(0, -3)}</WordGroup>
+          </Text>
         }
       </Flex>
       <VStack spacing={6}>
-        {post.comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+        {post.comments.map(comment =>
+          <Comment key={comment.id} comment={comment} />
+        )}
       </VStack>
     </Box>
   )

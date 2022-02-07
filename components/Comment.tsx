@@ -16,10 +16,16 @@ const Comment: React.VFC<Props> = ({ comment }) => {
         <Text as='b'>{comment.title}</Text>
         <Text my={3}>{comment.description}</Text>
         <Flex>
-          <Text color='GrayText' fontSize='xs'>Published on <WordGroup>{createdAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
+          <Text color='GrayText' fontSize='xs'>
+            Published on{' '}
+            <WordGroup>{createdAt.toLocaleString().slice(0, -3)}</WordGroup>
+          </Text>
           <Spacer minW={4} />
           {updatedAt.valueOf() !== createdAt.valueOf() &&
-            <Text color='GrayText' fontSize='xs'>Last Updated on <WordGroup>{updatedAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
+            <Text color='GrayText' fontSize='xs'>
+              Last Updated on{' '}
+              <WordGroup>{updatedAt.toLocaleString().slice(0, -3)}</WordGroup>
+            </Text>
           }
         </Flex>
       </Box>
