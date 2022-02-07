@@ -7,8 +7,8 @@ type Props = {
 }
 
 const Post: React.VFC<Props> = ({ post }) => {
-  post.createdAt = new Date(post.createdAt)
-  post.updatedAt = new Date(post.updatedAt)
+  const createdAt = new Date(post.createdAt)
+  const updatedAt = new Date(post.updatedAt)
 
   return (
     <Box
