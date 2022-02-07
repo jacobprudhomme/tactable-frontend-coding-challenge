@@ -11,10 +11,10 @@ const Comment: React.VFC<Props> = ({ comment }) => {
 
   return (
     <Flex align='stretch' mt={6}>
-      <Box w={4} mr={2} bg='tomato' />
+      <Box w={4} mr={2} bg='teal.300' />
       <Box>
         <Text as='b'>{comment.title}</Text>
-        <Text my={4}>{comment.description}</Text>
+        <Text my={3}>{comment.description}</Text>
         <Flex>
           <Text color='GrayText' fontSize='xs'>Published on <WordGroup>{createdAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
           <Spacer minW={4} />
