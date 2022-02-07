@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Spacer, Text, VStack } from '@chakra-ui/react';
 
 import Comment from '../components/Comment'
+import WordGroup from './WordGroup'
 import type { PostT } from '../types/commentPost'
 
 type Props = { post: PostT }
@@ -20,10 +21,10 @@ const Post: React.VFC<Props> = ({ post }) => {
       <Text color='GrayText' fontSize='sm' >Written by {post.authors.map(({ name }) => name).join(', ')}</Text>
       <Text my={4} align='justify' noOfLines={2}>{post.description}</Text>
       <Flex>
-        <Text color='GrayText' fontSize='xs'>Published on {post.createdAt.toLocaleString().slice(0, -3)}</Text>
+        <Text color='GrayText' fontSize='xs'>Published on <WordGroup>{createdAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
         <Spacer />
-        {post.updatedAt.valueOf() !== post.createdAt.valueOf() &&
-          <Text color='GrayText' fontSize='xs'>Last Updated on {post.updatedAt.toLocaleString().slice(0, -3)}</Text>
+        {updatedAt.valueOf() !== createdAt.valueOf() &&
+          <Text color='GrayText' fontSize='xs'>Last Updated on <WordGroup>{updatedAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
         }
       </Flex>
       <VStack spacing={6}>
