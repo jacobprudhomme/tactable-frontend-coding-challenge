@@ -12,17 +12,17 @@ const Post: React.VFC<Props> = ({ post }) => {
 
   return (
     <Box
-      p={4}
-      borderWidth='1px'
+      p={8}
+      bgColor='white'
       borderRadius='lg'
-      borderColor='gray.300'
+      boxShadow='lg'
     >
-      <Heading color='gainsboro' textTransform='uppercase'>{post.title}</Heading>
+      <Heading color='teal.300' textTransform='uppercase'>{post.title}</Heading>
       <Text color='GrayText' fontSize='sm' >Written by {post.authors.map(({ name }) => name).join(', ')}</Text>
-      <Text my={4} align='justify' noOfLines={2}>{post.description}</Text>
+      <Text my={4} align='justify'>{post.description}</Text>
       <Flex>
         <Text color='GrayText' fontSize='xs'>Published on <WordGroup>{createdAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
-        <Spacer />
+        <Spacer minW={2} />
         {updatedAt.valueOf() !== createdAt.valueOf() &&
           <Text color='GrayText' fontSize='xs'>Last Updated on <WordGroup>{updatedAt.toLocaleString().slice(0, -3)}</WordGroup></Text>
         }
