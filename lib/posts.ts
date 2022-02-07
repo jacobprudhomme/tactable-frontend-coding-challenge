@@ -1,4 +1,4 @@
-import PostT from '../types/post'
+import type { PostT } from '../types/commentPost'
 
 export const PAGE_SIZE = 5
 

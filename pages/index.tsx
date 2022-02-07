@@ -7,7 +7,7 @@ import { Button, Center, Flex, Spacer, VStack } from '@chakra-ui/react'
 
 import Post from '../components/Post'
 import { PAGE_SIZE, getPosts } from '../lib/posts'
-import type PostT from '../types/post'
+import type { PostT } from '../types/commentPost'
 
 type Query = {
   posts: PostT[]

@@ -1,10 +1,9 @@
-import { Box, Flex, Heading, Spacer, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Spacer, Text, VStack } from '@chakra-ui/react';
 
-import type PostT from '../types/post'
+import Comment from '../components/Comment'
+import type { PostT } from '../types/commentPost'
 
-type Props = {
-  post: PostT
-}
+type Props = { post: PostT }
 
 const Post: React.VFC<Props> = ({ post }) => {
   const createdAt = new Date(post.createdAt)
@@ -27,6 +26,9 @@ const Post: React.VFC<Props> = ({ post }) => {
           <Text color='GrayText' fontSize='xs'>Last Updated on {post.updatedAt.toLocaleString().slice(0, -3)}</Text>
         }
       </Flex>
+      <VStack spacing={6}>
+        {post.comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+      </VStack>
     </Box>
   )
 }
