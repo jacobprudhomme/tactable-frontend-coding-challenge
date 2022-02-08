@@ -9,7 +9,7 @@ export async function getPosts() {
     throw new Error('Error fetching list of posts')
   }
 
-  const posts: PostT[] = await res.json()
+  const posts: PostT[] = [...await res.json()]
   posts.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())  // Sort by most recently created
 
   const pageCount = Math.floor(posts.length / PAGE_SIZE) + (posts.length % PAGE_SIZE === 0 ? 0 : 1)
